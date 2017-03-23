@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+ - "6"
+
+# install dev dependencies
+install:
+ - cd backend && npm i --test && cd ..
+ - cd frontend && npm i --test && cd ..
+
+# check code quality
+before_script:
+ # lint frontend code
+ - cd frontend && npm run lint && cd ..
+
+script:
+ # run unit tests
+ - cd backend && npm test && cd ..
+ # build prod
+ - cd frontend && ng build --prod

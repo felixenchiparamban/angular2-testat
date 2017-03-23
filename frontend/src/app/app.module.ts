@@ -11,6 +11,8 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {AuthModule} from "./auth/auth.module";
 
+import {DashboardModule} from "./dashboard/dashboard.module";
+
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import {AuthModule} from "./auth/auth.module";
     CoreModule.forRoot(),
     AuthModule.forRoot(),
     WelcomeModule.forRoot(),
+    DashboardModule,
 
     AppRoutingModule
   ],
