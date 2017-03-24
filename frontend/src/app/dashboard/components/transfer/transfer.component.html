@@ -1,3 +1,40 @@
-<p>
-  transfer works!
-</p>
+<div class="row">
+  <h4>Neue Bewegungen</h4>
+</div>
+<form>
+  <div class="row">
+    <div class="small-1 columns">
+      <label for="fromAccount" class="text-left middle">Von</label>
+    </div>
+    <div class="small-11 columns">
+      <input type="text" id="fromAccount" placeholder="To account" reaonly disabled
+             value="Account 1 [750fr]">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-1 columns">
+      <label for="toAccount" class="text-left middle">Zu</label>
+    </div>
+    <div class="small-11 columns">
+      <input type="text" id="toAccount" placeholder="To account">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-1 columns">
+      <label for="amount" class="text-left middle">Betrag</label>
+    </div>
+    <div class="small-11 columns">
+      <div class="input-group">
+        <input class="input-group-field" id="amount" type="number">
+        <span class="input-group-label">$</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row text-right">
+    <button type="submit" class="primary button">Überweisen</button>
+  </div>
+
+</form>
