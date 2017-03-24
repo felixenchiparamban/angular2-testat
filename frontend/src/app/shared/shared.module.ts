@@ -14,7 +14,7 @@ import {DashboardNavComponent} from './components/';
   exports: [
     CommonModule,
     FormsModule,
-
+    WelcomeNavComponent,
     DashboardNavComponent
   ],
   providers: []
