@@ -12,6 +12,7 @@ import {LoginInfo} from "../models";
   templateUrl: 'login.component.html',
   styleUrls: ['login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
 
   private backUrl;
