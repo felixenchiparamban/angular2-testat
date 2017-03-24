@@ -5,21 +5,21 @@ import {RequestOptions} from "@angular/http";
 import {AuthService, SecurityTokenStore} from "./services";
 import {AuthResourceService, AuthRequestOptions} from "./resources";
 
-import {LoginComponent, LogoutComponent,
-  RegisterComponent} from "./components";
+import {LoginComponent, LogoutComponent, RegisterComponent} from "./components";
 import {SharedModule} from "../shared/shared.module";
+import { EqualDirective } from './directive/equal.directive';
 
 @NgModule({
   declarations: [
     // TODO: Add declarations here, if additional components are placed within the Auth module
-    LoginComponent, LogoutComponent, RegisterComponent
+    LoginComponent, LogoutComponent, RegisterComponent, EqualDirective
   ],
   imports: [
     SharedModule
   ],
   exports: [
     // TODO: Add declarations here, if additional components are placed within the Auth module
-    LoginComponent, LogoutComponent, RegisterComponent
+    LoginComponent, LogoutComponent, RegisterComponent, EqualDirective
   ],
   providers: [ ]
 })
