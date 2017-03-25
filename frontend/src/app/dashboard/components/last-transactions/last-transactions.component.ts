@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AccountService} from "../../services/";
+import {Account} from "../../../auth/models/account";
 
 @Component({
   selector: 'app-last-transactions',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LastTransactionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private accountService: AccountService) { }
 
   ngOnInit() {
+    this.accountService.getLastTransactions(3)
+      .subscribe();
   }
 
 }

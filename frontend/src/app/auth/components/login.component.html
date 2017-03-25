@@ -4,14 +4,14 @@
     User name:
     <div>
       <input pattern=".{3,}" placeholder="User" type="text" name="login" required #login="ngModel" ngModel/>
-      <div [hidden]="login.valid || firstname.pristine">Please specify your login, at least three characters.</div>
+      <div [hidden]="login.valid || firstname">Please specify your login, at least three characters.</div>
     </div>
   </div>
   <div>
     Password:
     <div>
       <input pattern=".{3,}" placeholder="Password" type="password" name="password" required #password="ngModel" ngModel/>
-      <div [hidden]="password.valid || firstname.pristine">Please specify your login, at least three characters.</div>
+      <div [hidden]="password.valid || firstname">Please specify your login, at least three characters.</div>
     </div>
   </div>
   <button>Login</button>
