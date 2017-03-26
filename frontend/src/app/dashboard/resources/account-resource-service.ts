@@ -3,6 +3,7 @@ import {ResourceBase} from "../../auth";
 import {Http, Response} from "@angular/http";
 import {Observable} from "rxjs";
 import {Account} from "../../auth/models/account";
+import {Transaction} from "../models/transaction";
 
 @Injectable()
 export class AccountResourceService extends ResourceBase {
@@ -24,15 +25,20 @@ export class AccountResourceService extends ResourceBase {
       });
   }
 
-  public getTransactions(count: number): Observable<any>{
-    return this.get(`/accounts/transactions?count=${count}`)
+  public getTransactions(fromDate: Date, toDate: Date, count: number, skip: number): Observable<Transaction[]> {
+    // TODO filter parameters
+    //accounts/transactions?fromDate=2016-05-11T02:00:00.000Z&toDate=2016-12-11T02:00:00.000Z&count=4
+    let url = `/accounts/transactions?fromDate=${fromDate.toString()}&toDate=${toDate.toString()}&count=${count}`;
+    return this.get(url)
       .map((response: Response) => {
-        console.log(response);
-        return null;
+        let body = response.json();
+        let transactions: Transaction[] = [];
+        body.result.forEach((t: any) => {
+          transactions.push(Transaction.fromDto(t));
+        });
+        return transactions;
       }).catch((error: any) => {
-        return Observable.of<Account>(null);
+        return Observable.of<Transaction[]>(null);
       });
   }
-  //accounts/transactions?fromDate=2016-05-11T02:00:00.000Z&toDate=2016-12-11T02:00:00.000Z&count=4
-
 }
