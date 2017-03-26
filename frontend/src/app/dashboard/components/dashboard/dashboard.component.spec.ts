@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {DashboardComponent} from './dashboard.component';
-import {DashboardNavComponent} from "../../../shared/components/dashboard-nav/dashboard-nav.component";
+import {DashboardNavComponent} from "../dashboard-nav/dashboard-nav.component";
 import {DashbaordRoutingModule} from "../../dashboard-routing.module";
 
 describe('DashboardComponent', () => {

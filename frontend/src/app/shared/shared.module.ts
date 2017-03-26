@@ -1,23 +1,18 @@
 import {NgModule, ModuleWithProviders} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
-import {WelcomeNavComponent} from './components/welcome-nav/welcome-nav.component';
-import {DashboardNavComponent} from './components/';
-import {RouterModule} from "@angular/router";
 
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
-    WelcomeNavComponent,
-    DashboardNavComponent],
+  ],
   imports: [
     CommonModule, RouterModule
   ],
   exports: [
     CommonModule,
-    FormsModule,
-    WelcomeNavComponent,
-    DashboardNavComponent
+    FormsModule
   ],
   providers: []
 })
