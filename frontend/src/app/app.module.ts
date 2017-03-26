@@ -26,7 +26,7 @@ import {DashboardModule} from "./dashboard/dashboard.module";
     CoreModule.forRoot(),
     AuthModule.forRoot(),
     WelcomeModule.forRoot(),
-    DashboardModule,
+    DashboardModule.forRoot(),
 
     AppRoutingModule
   ],

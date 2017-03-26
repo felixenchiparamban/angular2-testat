@@ -7,7 +7,7 @@ import {AuthResourceService, AuthRequestOptions} from "./resources";
 
 import {LoginComponent, LogoutComponent, RegisterComponent} from "./components";
 import {SharedModule} from "../shared/shared.module";
-import { EqualDirective } from './directive/equal.directive';
+import {EqualDirective} from './directive/equal.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { EqualDirective } from './directive/equal.directive';
     // TODO: Add declarations here, if additional components are placed within the Auth module
     LoginComponent, LogoutComponent, RegisterComponent, EqualDirective
   ],
-  providers: [ ]
+  providers: []
 })
 export class AuthModule {
   static forRoot(config?: {}): ModuleWithProviders {

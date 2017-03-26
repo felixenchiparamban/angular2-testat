@@ -1,6 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DashboardComponent } from './dashboard.component';
+import {DashboardComponent} from './dashboard.component';
+import {DashboardNavComponent} from "../../../shared/components/dashboard-nav/dashboard-nav.component";
+import {DashbaordRoutingModule} from "../../dashboard-routing.module";
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -8,9 +10,12 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
+      declarations: [DashboardComponent, DashboardNavComponent],
+      imports: [
+        DashbaordRoutingModule
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

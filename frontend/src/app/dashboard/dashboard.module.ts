@@ -3,16 +3,18 @@ import {NgModule, ModuleWithProviders} from '@angular/core';
 import {SharedModule} from "../shared/shared.module";
 
 import {DashbaordRoutingModule} from "./dashboard-routing.module";
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { TransferComponent } from './components/transfer/transfer.component';
-import { LastTransactionsComponent } from './components/last-transactions/last-transactions.component';
-import { AccountDetailComponent } from './components/account-detail/account-detail.component';
-import { DashboardHomeComponent } from './components/dashboard-home/dashboard-home.component';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
+import {TransferComponent} from './components/transfer/transfer.component';
+import {LastTransactionsComponent} from './components/last-transactions/last-transactions.component';
+import {AccountDetailComponent} from './components/account-detail/account-detail.component';
+import {DashboardHomeComponent} from './components/dashboard-home/dashboard-home.component';
+import {AccountService} from "./services";
+import {AccountResourceService} from "./resources/account-resource-service";
 
 @NgModule({
   declarations: [
     // Declarations (Components / Directives) used from/within the Module
-  DashboardComponent,
+    DashboardComponent,
     TransferComponent,
     LastTransactionsComponent,
     AccountDetailComponent,
@@ -23,16 +25,21 @@ import { DashboardHomeComponent } from './components/dashboard-home/dashboard-ho
   ],
   exports: [
     // Components/Directives (or even Modules) to export (available for other modules; and forRoot() )
+    TransferComponent,
+    LastTransactionsComponent
   ],
   providers: [
     // DI Providers (Services, Tokens, Factories...), may be instantiated multiple times
   ]
 })
 export class DashboardModule {
-  static forRoot(config?:{}) : ModuleWithProviders {
+  static forRoot(config?: {}): ModuleWithProviders {
     return {
       ngModule: DashboardModule,
-      providers: [ ]
+      providers: [
+        AccountResourceService,
+        AccountService
+      ]
     };
   }
 }
