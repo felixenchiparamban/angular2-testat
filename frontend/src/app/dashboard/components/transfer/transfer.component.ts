@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Account} from "../../../auth/models/account";
 import {AuthService} from "../../../auth/services/auth.service";
 import {ExtendedAccount} from "../../models/extended-account";
 import {AccountService} from "../../services/account.service";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-transfer',
@@ -11,6 +12,10 @@ import {AccountService} from "../../services/account.service";
 })
 export class TransferComponent implements OnInit {
   private myAccount: ExtendedAccount;
+  private targetAccount: ExtendedAccount;
+
+  public toAccount: string = "1000002";
+  public amount: number = 10.0;
 
   constructor(private accountService: AccountService) {
   }
@@ -22,6 +27,15 @@ export class TransferComponent implements OnInit {
           this.myAccount = extendedAccount;
         }
       );
+  }
+
+  public pay(payForm: NgForm): boolean {
+    console.log('paying');
+    if (payForm.form.valid) {
+      console.log('paying');
+      this.accountService.addTransaction(this.toAccount, this.amount);
+    }
+    return false;
   }
 
 }

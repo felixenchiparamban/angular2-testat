@@ -1,7 +1,7 @@
 <div class="row">
   <h4>Neue Bewegungen</h4>
 </div>
-<form>
+<form (ngSubmit)="pay(payForm)" #payForm="ngForm">
   <div class="row">
     <div class="small-1 columns">
       <label for="fromAccount" class="text-left middle">Von</label>
@@ -17,7 +17,13 @@
       <label for="toAccount" class="text-left middle">Zu</label>
     </div>
     <div class="small-11 columns">
-      <input type="text" id="toAccount" placeholder="To account">
+      <input type="number" class="form-control" id="toAccount"
+             placeholder="To account"
+             [(ngModel)]="toAccount" name="toAccount" required
+             #toAccountValidation="ngModel" pattern="[0-9]{7,}">
+      <div [hidden]="toAccountValidation.valid|| toAccountValidation.pristine" class="error">
+        toAccount is required
+      </div>
     </div>
   </div>
 
@@ -27,14 +33,21 @@
     </div>
     <div class="small-11 columns">
       <div class="input-group">
-        <input class="input-group-field" id="amount" type="number">
+        <input class="input-group-field" id="amount" type="number"
+        placeholder="Betrag" ngModel name="amount" required
+        #amountValidation="ngModel">
         <span class="input-group-label">$</span>
       </div>
+    </div>
+    <div [hidden]="amountValidation.valid|| amountValidation.pristine" class="error">
+      Amount is required
     </div>
   </div>
 
   <div class="row text-right">
-    <button type="submit" class="primary button">Überweisen</button>
+    <button type="submit" class="primary button"
+            [disabled]="!payForm.form.valid">Überweisen
+    </button>
   </div>
 
 </form>

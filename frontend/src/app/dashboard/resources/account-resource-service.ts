@@ -26,6 +26,18 @@ export class AccountResourceService extends ResourceBase {
       });
   }
 
+  public addTransaction(toAccount: string, amount: number): void {
+    let url = `/accounts/transactions`;
+    let dto = {
+      target: toAccount,
+      amount: amount
+    };
+    this.post(url, dto)
+      .map((response: Response) => {
+        console.log(response);
+      });
+  }
+
   public getTransactions(fromDate: Date, toDate: Date, count?: number, skip?: number): Observable<Transaction[]> {
     // TODO filter parameters
     //accounts/transactions?fromDate=2016-05-11T02:00:00.000Z&toDate=2016-12-11T02:00:00.000Z&count=4

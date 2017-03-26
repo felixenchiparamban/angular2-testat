@@ -21,6 +21,11 @@ export class AccountService {
     return this.accountResource.getAccount(id);
   }
 
+  public addTransaction(toAccount: string, amount: number):void{
+    console.log('paying');
+    this.accountResource.addTransaction(toAccount, amount);
+  }
+
   public getLastTransactions(count: number): void {
     this.accountResource.getTransactions(new Date('2015-01-01'), new Date(), count, 0)
       .subscribe(
