@@ -6,7 +6,8 @@ const appRoutes: Routes = [
   // TODO: Add routing of lazy loaded dashboard Module (with guards) here...
 
   // TODO: Add routing of eagerly loaded modules here...
-  { path: '', redirectTo: '/welcome', pathMatch: 'full' }
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+  { path: 'dashboard', loadChildren: 'app/dashboard/dashboard.module#DashboardModule' }
 ];
 
 @NgModule({
