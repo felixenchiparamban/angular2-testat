@@ -1,9 +1,19 @@
 <div class="top-bar">
   <div class="top-bar-left">
-    <a href="#">Home</a>
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">Finance Portal</li>
+    </ul>
   </div>
   <div class="top-bar-right">
-    <a routerLink="welcome/register" routerLinkActive="active">Register</a>
+    <ul class="menu">
+      <li  class="nav-link">
+        <a [routerLink]="['']" [routerLinkActiveOptions]="{exact:true}" [routerLinkActive]="['active']" >login</a>
+      </li>
+      <li  class="nav-link">
+        <a [routerLink]="['register']" [routerLinkActive]="['active']" >Register</a>
+      </li>
+
+    </ul>
   </div>
 </div>
 
