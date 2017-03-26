@@ -4,6 +4,7 @@ import {Http, Response} from "@angular/http";
 import {Observable} from "rxjs";
 import {Account} from "../../auth/models/account";
 import {Transaction} from "../models/transaction";
+import {ExtendedAccount} from "../models/extended-account";
 
 @Injectable()
 export class AccountResourceService extends ResourceBase {
@@ -12,16 +13,16 @@ export class AccountResourceService extends ResourceBase {
     super(http);
   }
 
-  public getAccount(id: number): Observable<Account> {
-    return this.get(`/accounts/${id}`)
+  public getAccount(id?: number): Observable<ExtendedAccount> {
+    return this.get(`/accounts/${id ? id : ''}`)
       .map((response: Response) => {
         let result = response.json();
         if (result) {
-          return Account.fromDto(result);
+          return ExtendedAccount.fromDto(result);
         }
         return null;
       }).catch((error: any) => {
-        return Observable.of<Account>(null);
+        return Observable.of<ExtendedAccount>(null);
       });
   }
 
