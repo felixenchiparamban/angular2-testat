@@ -29,8 +29,13 @@ export class AccountService {
         });
   }
 
-  public getAllTransactions():void {
-
+  public getAllTransactions(fromDate: Date, toDate: Date):void {
+    this.accountResource.getTransactions(fromDate, toDate)
+      .subscribe(
+        (transactions: Transaction[]) => {
+          this.allTransactions = transactions;
+          this.allTransactionChange.emit(this.allTransactions);
+        });
   }
 
 }

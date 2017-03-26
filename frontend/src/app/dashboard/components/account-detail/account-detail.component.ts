@@ -14,8 +14,8 @@ export class AccountDetailComponent implements OnInit {
   readonly endYear = 2017;
   private years:number[] = [];
   private months:string[] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  private selectedYear = 2015;
-  private selectedMonth = "January";
+  private selectedYear:number = 2015;
+  private selectedMonth:number = 0;
 
   private allTransactions: Transaction[] = [];
   private subscription: Subscription;
@@ -36,16 +36,15 @@ export class AccountDetailComponent implements OnInit {
         this.allTransactions = transition;
       }
     );
-    this.getAllTransaction();
+    this.getAllTransaction(new Date('2015-01-01'), new Date());
   }
 
-  getAllTransaction(){
-
+  getAllTransaction(fromDate: Date, toDate: Date){
+    this.accountService.getAllTransactions(fromDate, toDate);
   }
 
-  onChange(e:UIEvent){
-    e.preventDefault();
-
+  onDateChange(){
+    this.getAllTransaction(new Date(this.selectedYear, this.selectedMonth, 1), new Date());
   }
 
   ngOnDestroy(){
