@@ -13,16 +13,18 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>1111</td>
-      <td>22222</td>
-      <td>-50</td>
-      <td>750</td>
+
+    <tr *ngFor="let t of lastTransactions">
+      <td>{{t.from}}</td>
+      <td>{{t.target}}</td>
+      <td>{{t.amount}}</td>
+      <td>{{t.total}}</td>
     </tr>
+
     </tbody>
   </table>
 </div>
 
 <div class="row text-right">
-  <button type="submit" class="primary button">Alle anzeigen</button>
+  <button type="button" class="primary button" (click)="getLastTransactions()">Alle anzeigen</button>
 </div>

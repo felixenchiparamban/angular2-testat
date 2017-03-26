@@ -17,4 +17,8 @@ export class Account {
       accountNr: this.accountNr
     };
   }
+
+  get fullname(): string {
+    return `${this.firstname} ${this.lastname}`;
+  }
 }
