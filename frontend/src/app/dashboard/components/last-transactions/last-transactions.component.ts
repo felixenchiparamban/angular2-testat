@@ -9,6 +9,7 @@ import {Subscription} from "rxjs";
   templateUrl: './last-transactions.component.html',
   styleUrls: ['./last-transactions.component.css']
 })
+
 export class LastTransactionsComponent implements OnInit {
   private lastTransactions: Transaction[] = [];
   private subscription: Subscription;

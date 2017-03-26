@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from "@angular/router";
+import {RouterOutlet, ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-welcome-nav',
@@ -8,9 +8,13 @@ import { RouterOutlet } from "@angular/router";
 })
 export class WelcomeNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
 
+  isCurrentRoute(section: string){
+    return true;
+    /*this.route.url === section*/
+  }
 }

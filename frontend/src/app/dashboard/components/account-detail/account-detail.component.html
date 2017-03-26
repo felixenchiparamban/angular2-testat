@@ -1,3 +1,41 @@
-<p>
-  account-detail works!
-</p>
+<div class="row">
+  <div class="column">
+    <h4>Konto Bewegungen</h4>
+    <div>
+      Filter
+      <label>Select a Year
+        <select [ngModel]="selectedYear" (ngModelChange)="onChange($event)">
+          <option *ngFor="let y of years" value="{{y}}">{{y}}</option>
+        </select>
+      </label>
+
+      <label>Select a month
+        <select [ngModel]="selectedMonth" (ngModelChange)="onChange($event)">
+          <option *ngFor="let m of months" value="{{m}}">{{m}}</option>
+        </select>
+      </label>
+    </div>
+    <table class="hover">
+      <thead>
+      <tr>
+        <th>Datum</th>
+        <th>Von</th>
+        <th>Zu</th>
+        <th>Betrag</th>
+        <th>Kontostand Neu</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr *ngFor="let t of allTransactions">
+        <td>{{t.date}}</td>
+        <td>{{t.from}}</td>
+        <td>{{t.target}}</td>
+        <td>{{t.amount}}</td>
+        <td>{{t.total}}</td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
