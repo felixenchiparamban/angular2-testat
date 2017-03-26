@@ -1,6 +1,7 @@
 import {NgModule, ModuleWithProviders} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {RequestOptions} from "@angular/http";
+import { RouterModule } from "@angular/router";
 
 import {AuthService, SecurityTokenStore} from "./services";
 import {AuthResourceService, AuthRequestOptions} from "./resources";
@@ -15,7 +16,7 @@ import {EqualDirective} from './directive/equal.directive';
     LoginComponent, LogoutComponent, RegisterComponent, EqualDirective
   ],
   imports: [
-    SharedModule
+    SharedModule, RouterModule
   ],
   exports: [
     // TODO: Add declarations here, if additional components are placed within the Auth module

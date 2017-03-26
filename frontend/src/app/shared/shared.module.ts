@@ -4,6 +4,7 @@ import {CommonModule} from "@angular/common";
 import {WelcomeNavComponent} from './components/welcome-nav/welcome-nav.component';
 import {DashboardNavComponent} from './components/';
 
+
 @NgModule({
   declarations: [
     WelcomeNavComponent,
