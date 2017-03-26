@@ -2,7 +2,9 @@
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
       <li class="menu-text">Finance Portal</li>
-      <li><a href="#">Home</a></li>
+      <li>
+        <a [routerLink]="['./']" [routerLinkActive]="['active']">Home</a>
+      </li>
       <li>
         <a [routerLink]="['transactions']" [routerLinkActive]="['active']">Konto Bewegungen</a>
       </li>

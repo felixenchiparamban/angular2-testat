@@ -26,7 +26,6 @@ export class LastTransactionsComponent implements OnInit {
   }
 
   getLastTransactions() {
-    console.log('getting last transactions');
     this.accountService.getLastTransactions(3);
   }
 

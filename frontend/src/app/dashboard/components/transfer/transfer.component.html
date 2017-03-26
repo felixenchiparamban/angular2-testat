@@ -34,7 +34,7 @@
     <div class="small-11 columns">
       <div class="input-group">
         <input class="input-group-field" id="amount" type="number"
-        placeholder="Betrag" ngModel name="amount" required
+        placeholder="Betrag" [(ngModel)]="amount" name="amount" required
         #amountValidation="ngModel">
         <span class="input-group-label">$</span>
       </div>
