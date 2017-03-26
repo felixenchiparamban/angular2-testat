@@ -14,7 +14,7 @@ export class AccountDetailComponent implements OnInit {
   readonly endYear = 2017;
   private years:number[] = [];
   private months:string[] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  private selectedYear:number = 2015;
+  private selectedYear:number = 2017;
   private selectedMonth:number = 0;
 
   private allTransactions: Transaction[] = [];
@@ -36,7 +36,7 @@ export class AccountDetailComponent implements OnInit {
         this.allTransactions = transition;
       }
     );
-    this.getAllTransaction(new Date('2015-01-01'), new Date());
+    this.getAllTransaction(new Date(this.selectedYear, this.selectedMonth, 1), new Date(this.selectedYear, this.selectedMonth, 32 - new Date(this.selectedYear, this.selectedMonth, 32).getDate()));
   }
 
   getAllTransaction(fromDate: Date, toDate: Date){
@@ -44,7 +44,7 @@ export class AccountDetailComponent implements OnInit {
   }
 
   onDateChange(){
-    this.getAllTransaction(new Date(this.selectedYear, this.selectedMonth, 1), new Date());
+    this.getAllTransaction(new Date(this.selectedYear, this.selectedMonth, 1), new Date(this.selectedYear, this.selectedMonth, 32 - new Date(this.selectedYear, this.selectedMonth, 32).getDate()));
   }
 
   ngOnDestroy(){

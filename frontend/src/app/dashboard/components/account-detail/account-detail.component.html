@@ -16,6 +16,7 @@
       </label>
     </div>
     <table class="hover">
+
       <thead>
       <tr>
         <th>Datum</th>
@@ -25,8 +26,8 @@
         <th>Kontostand Neu</th>
       </tr>
       </thead>
-      <tbody>
 
+      <tbody>
       <tr *ngFor="let t of allTransactions">
         <td>{{t.date}}</td>
         <td>{{t.from}}</td>
@@ -34,8 +35,8 @@
         <td>{{t.amount}}</td>
         <td>{{t.total}}</td>
       </tr>
-
       </tbody>
+
     </table>
   </div>
 </div>
