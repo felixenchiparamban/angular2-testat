@@ -5,11 +5,13 @@ import {SharedModule} from "../shared/shared.module";
 import {WelcomeRoutingModule} from "./welcome-routing.module";
 import {WelcomeComponent} from "./welcome.component";
 import {AuthModule} from "../auth/auth.module";
+import {WelcomeNavComponent} from "./components/welcome-nav/welcome-nav.component";
 
 
 @NgModule({
   declarations: [
-    WelcomeComponent
+    WelcomeComponent,
+    WelcomeNavComponent
   ],
   imports: [
     WelcomeRoutingModule, SharedModule, AuthModule
@@ -26,5 +28,4 @@ export class WelcomeModule {
       providers: [ ]
     };
   }
-
 }
