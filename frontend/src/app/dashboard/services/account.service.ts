@@ -3,6 +3,7 @@ import {AccountResourceService} from "../resources/account-resource-service";
 import {Observable} from "rxjs";
 import {Account} from "../../auth/models/account";
 import {Transaction} from "../models/transaction";
+import {ExtendedAccount} from "../models/extended-account";
 
 @Injectable()
 export class AccountService {
@@ -16,7 +17,7 @@ export class AccountService {
   constructor(private accountResource: AccountResourceService) {
   }
 
-  public getAccount(id: number): Observable<Account> {
+  public getAccount(id?: number): Observable<ExtendedAccount> {
     return this.accountResource.getAccount(id);
   }
 

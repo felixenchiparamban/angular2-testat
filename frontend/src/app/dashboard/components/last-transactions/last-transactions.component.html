@@ -26,5 +26,5 @@
 </div>
 
 <div class="row text-right">
-  <button type="button" class="primary button" (click)="getLastTransactions()">Alle anzeigen</button>
+  <a class="button" [routerLink]="['transactions']" [routerLinkActive]="['active']" >Alle anzeigen</a>
 </div>

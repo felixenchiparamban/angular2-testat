@@ -4,15 +4,15 @@ import {Router} from "@angular/router";
 @Injectable()
 export class NavigationService {
 
-  public goToUrl(url:string):void {
+  public goToUrl(url: string): void {
     this.router.navigateByUrl(url);
   }
 
-  public goToHome():void {
+  public goToHome(): void {
     this.goToUrl("/"); // TODO: adjust routing according this URL
   }
 
-  public goToDashboard():void {
+  public goToDashboard(): void {
     this.goToUrl("/dashboard"); // TODO: adjust routing according this URL
   }
 
