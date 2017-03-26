@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import {LoginComponent, RegisterComponent} from "../auth/components";
 import {WelcomeComponent} from "./welcome.component";
+import {LogoutComponent} from "../auth/components/logout.component";
 
 const appRoutes: Routes = [
   {
@@ -11,7 +12,8 @@ const appRoutes: Routes = [
     // TODO: Add guard and routing (Register/Login) here...
     children: [
       { path: '', component: LoginComponent },
-      { path: 'register', component: RegisterComponent}
+      { path: 'register', component: RegisterComponent},
+      { path: 'logout', component: LogoutComponent}
     ]
   }
 ];

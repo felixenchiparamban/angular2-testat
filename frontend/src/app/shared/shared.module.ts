@@ -3,6 +3,7 @@ import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {WelcomeNavComponent} from './components/welcome-nav/welcome-nav.component';
 import {DashboardNavComponent} from './components/';
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
@@ -10,7 +11,7 @@ import {DashboardNavComponent} from './components/';
     WelcomeNavComponent,
     DashboardNavComponent],
   imports: [
-    CommonModule
+    CommonModule, RouterModule
   ],
   exports: [
     CommonModule,

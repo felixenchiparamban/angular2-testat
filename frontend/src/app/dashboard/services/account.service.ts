@@ -10,6 +10,9 @@ export class AccountService {
   public lastTransactionsChange: EventEmitter<Transaction[]> = new EventEmitter<Transaction[]>();
   private lastTransactions:Transaction[] = null;
 
+  public allTransactionChange: EventEmitter<Transaction[]> = new EventEmitter<Transaction[]>();
+  private allTransactions:Transaction[] = null;
+
   constructor(private accountResource: AccountResourceService) {
   }
 
@@ -25,4 +28,9 @@ export class AccountService {
           this.lastTransactionsChange.emit(this.lastTransactions);
         });
   }
+
+  public getAllTransactions():void {
+
+  }
+
 }

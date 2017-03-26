@@ -25,7 +25,7 @@ export class AccountResourceService extends ResourceBase {
       });
   }
 
-  public getTransactions(fromDate: Date, toDate: Date, count: number, skip: number): Observable<Transaction[]> {
+  public getTransactions(fromDate: Date, toDate: Date, count?: number, skip?: number): Observable<Transaction[]> {
     // TODO filter parameters
     //accounts/transactions?fromDate=2016-05-11T02:00:00.000Z&toDate=2016-12-11T02:00:00.000Z&count=4
     let url = `/accounts/transactions?fromDate=${fromDate.toString()}&toDate=${toDate.toString()}&count=${count}`;
