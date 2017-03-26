@@ -26,22 +26,31 @@ export class AccountResourceService extends ResourceBase {
       });
   }
 
-  public addTransaction(toAccount: string, amount: number): void {
+  public addTransaction(toAccount: string, amount: number): Observable<Transaction> {
     let url = `/accounts/transactions`;
     let dto = {
       target: toAccount,
       amount: amount
     };
-    this.post(url, dto)
+    return this.post(url, dto)
       .map((response: Response) => {
-        console.log(response);
+        let result = response.json();
+        console.log(result);
+        if(result){
+          return Transaction.fromDto(result);
+        }
+        return null;
+      })
+      .catch((error: any) => {
+        console.log(error);
+        return Observable.of<Transaction>(null);
       });
   }
 
   public getTransactions(fromDate: Date, toDate: Date, count?: number, skip?: number): Observable<Transaction[]> {
     // TODO filter parameters
     //accounts/transactions?fromDate=2016-05-11T02:00:00.000Z&toDate=2016-12-11T02:00:00.000Z&count=4
-    let url = `/accounts/transactions?fromDate=${fromDate.toString()}&toDate=${toDate.toString()}&count=${count}`;
+    let url = `/accounts/transactions?fromDate=${fromDate.toISOString()}&toDate=${toDate.toISOString()}&count=${count}`;
     return this.get(url)
       .map((response: Response) => {
         let body = response.json();

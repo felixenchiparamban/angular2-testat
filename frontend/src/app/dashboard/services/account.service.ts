@@ -9,10 +9,10 @@ import {ExtendedAccount} from "../models/extended-account";
 export class AccountService {
 
   public lastTransactionsChange: EventEmitter<Transaction[]> = new EventEmitter<Transaction[]>();
-  private lastTransactions:Transaction[] = null;
+  private lastTransactions: Transaction[] = null;
 
   public allTransactionChange: EventEmitter<Transaction[]> = new EventEmitter<Transaction[]>();
-  private allTransactions:Transaction[] = null;
+  private allTransactions: Transaction[] = null;
 
   constructor(private accountResource: AccountResourceService) {
   }
@@ -21,12 +21,14 @@ export class AccountService {
     return this.accountResource.getAccount(id);
   }
 
-  public addTransaction(toAccount: string, amount: number):void{
-    console.log('paying');
-    this.accountResource.addTransaction(toAccount, amount);
+  public addTransaction(toAccount: string, amount: number): void {
+    this.accountResource.addTransaction(toAccount, amount).subscribe(
+      (transaction: Transaction) => {
+        this.getLastTransactions();
+      });
   }
 
-  public getLastTransactions(count: number): void {
+  public getLastTransactions(count = 3): void {
     this.accountResource.getTransactions(new Date('2015-01-01'), new Date(), count, 0)
       .subscribe(
         (transactions: Transaction[]) => {
@@ -35,7 +37,7 @@ export class AccountService {
         });
   }
 
-  public getAllTransactions(fromDate: Date, toDate: Date):void {
+  public getAllTransactions(fromDate: Date, toDate: Date): void {
     this.accountResource.getTransactions(fromDate, toDate)
       .subscribe(
         (transactions: Transaction[]) => {

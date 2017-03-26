@@ -30,9 +30,7 @@ export class TransferComponent implements OnInit {
   }
 
   public pay(payForm: NgForm): boolean {
-    console.log('paying');
     if (payForm.form.valid) {
-      console.log('paying');
       this.accountService.addTransaction(this.toAccount, this.amount);
     }
     return false;
