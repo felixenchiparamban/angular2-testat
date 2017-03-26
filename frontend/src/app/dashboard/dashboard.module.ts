@@ -10,6 +10,7 @@ import {AccountDetailComponent} from './components/account-detail/account-detail
 import {DashboardHomeComponent} from './components/dashboard-home/dashboard-home.component';
 import {AccountService} from "./services";
 import {AccountResourceService} from "./resources/account-resource-service";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
