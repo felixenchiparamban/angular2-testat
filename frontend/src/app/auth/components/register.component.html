@@ -12,20 +12,20 @@
       Last name:
       <div>
         <input pattern=".{2,}" placeholder="Last name" type="text" name="lastname" required #lastname="ngModel" ngModel/>
-        <div class="validation-error" [hidden]="lastname.valid || firstname.pristine">Please specify your last name.</div>
+        <div class="validation-error" [hidden]="lastname.valid || lastname.pristine">Please specify your last name.</div>
       </div>
     </div>
     <div>
       User name:
       <div>
         <input pattern=".{3,}" placeholder="User" type="text" name="login" required #username="ngModel" ngModel/>
-        <div class="validation-error" [hidden]="username.valid || firstname.pristine">Please specify your login, at least three characters.</div>
+        <div class="validation-error" [hidden]="username.valid || username.pristine">Please specify your login, at least three characters.</div>
       </div>
     </div>
     <div>
       Password:
       <div>
-        <input pattern=".{3,}" #password placeholder="Password" type="password" name="password" required #password="ngModel" ngModel/>
+        <input pattern=".{3,}" placeholder="Password" type="password" name="password" required #password="ngModel" ngModel/>
         <div class="validation-error" [hidden]="password.valid || password.pristine">Please specify your password, at least three characters.</div>
       </div>
     </div>

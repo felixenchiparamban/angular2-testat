@@ -6,8 +6,7 @@ import {AccountDetailComponent} from './components/account-detail/account-detail
 
 const appRoutes: Routes = [
   {
-    path: 'dashboard',
-    component: DashboardComponent, // TODO: Add initial router outlet dashboard component...
+    path: 'dashboard', component: DashboardComponent, // TODO: Add initial router outlet dashboard component...
     children: [
       {path: '', component: DashboardHomeComponent},
       {path: 'transactions', component: AccountDetailComponent}

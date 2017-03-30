@@ -2,7 +2,9 @@ import {Injectable} from '@angular/core';
 import {RequestOptions, Headers} from "@angular/http";
 
 import {SecurityTokenStore} from "../services/credential-management";
-
+/*
+* - Für was wird diese class hier verwendet?
+* */
 @Injectable()
 export class AuthRequestOptions extends RequestOptions {
 

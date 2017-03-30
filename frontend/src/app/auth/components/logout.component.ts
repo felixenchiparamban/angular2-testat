@@ -13,7 +13,9 @@ import {Account} from "../models";
 export class LogoutComponent implements OnInit {
 
   public user:Account;
-
+  /*
+  * - Wieso wird hier das route als aufruf parameter mitgegeben?
+  * */
   constructor(private autSvc:AuthService, private navigationSvc: NavigationService, route: ActivatedRoute) {
   }
 

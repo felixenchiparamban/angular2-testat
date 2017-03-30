@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
  .validation-error {
-  background: #cc4b37;
-  color: #fefefe;
+    margin: 0.4rem;
+    background: #cc4b37;
+    color: #fefefe;
 }
