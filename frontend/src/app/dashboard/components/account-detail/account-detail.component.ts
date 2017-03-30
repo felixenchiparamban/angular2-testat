@@ -1,4 +1,4 @@
-import {Component, OnInit, transition} from '@angular/core';
+import {Component, OnInit, transition, OnDestroy} from '@angular/core';
 import {Transaction} from "../../models/transaction";
 import {Subscription} from "rxjs";
 import {AccountService} from "../../services/account.service";
@@ -8,12 +8,15 @@ import {AccountService} from "../../services/account.service";
   templateUrl: './account-detail.component.html',
   styleUrls: ['./account-detail.component.css']
 })
-export class AccountDetailComponent implements OnInit {
+
+export class AccountDetailComponent implements OnInit, OnDestroy {
 
   readonly startYear = 2015;
   readonly endYear = 2017;
+
   private years:number[] = [];
   private months:string[] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
   private selectedYear:number = 2017;
   private selectedMonth:number = 0;
 

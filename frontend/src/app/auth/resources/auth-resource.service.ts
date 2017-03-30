@@ -8,6 +8,7 @@ import {ResourceBase} from "./resource-base";
 
 @Injectable()
 export class AuthResourceService extends ResourceBase {
+
   constructor(http: Http) {
     super(http);
   }

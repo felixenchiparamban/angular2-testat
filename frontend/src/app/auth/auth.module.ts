@@ -30,6 +30,9 @@ export class AuthModule {
     return {
       ngModule: AuthModule,
       providers: [
+        /*
+        * - Für was wird diese provider hier verwendet?
+        * */
         // DI Providers (Services, Tokens, Factories...) to be used globally and instantiated only once
 
         // TODO: Add services/guards/... here, if additional classes are placed within the Auth module

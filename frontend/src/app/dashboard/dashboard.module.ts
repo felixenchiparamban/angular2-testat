@@ -13,6 +13,8 @@ import {AccountService} from "./services";
 import {AccountResourceService} from "./resources/account-resource-service";
 import {FormsModule} from "@angular/forms";
 import {AuthModule} from "../auth/auth.module";
+import { DateTransformPipe } from './pipes/date-transform.pipe';
+import { CurrencydisplayPipe } from './pipes/currencydisplay.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import {AuthModule} from "../auth/auth.module";
     TransferComponent,
     LastTransactionsComponent,
     AccountDetailComponent,
-    DashboardHomeComponent],
+    DashboardHomeComponent,
+    DateTransformPipe,
+    CurrencydisplayPipe],
   imports: [
     // Other Modules to import (imports the exported Components/Directives from the other module)
     SharedModule, DashbaordRoutingModule, AuthModule

@@ -29,11 +29,11 @@
 
       <tbody>
       <tr *ngFor="let t of allTransactions">
-        <td>{{t.date}}</td>
+        <td>{{t.date | dateTransform}}</td>
         <td>{{t.from}}</td>
         <td>{{t.target}}</td>
-        <td>{{t.amount}}</td>
-        <td>{{t.total}}</td>
+        <td>{{t.amount | currencydisplay}}</td>
+        <td>{{t.total | currencydisplay}}</td>
       </tr>
       </tbody>
 
