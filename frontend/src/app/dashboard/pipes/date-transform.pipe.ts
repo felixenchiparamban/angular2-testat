@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DateTransformPipe implements PipeTransform {
 
   transform(date: Date, args?: any): any {
-    return date.getDate() + " " + ("0" + (date.getMonth() + 1)).slice(-2) + " " + date.getFullYear();
+    return date.toLocaleString();
   }
 
 }

@@ -1,7 +1,6 @@
 import {Injectable, EventEmitter} from '@angular/core';
 import {AccountResourceService} from "../resources/account-resource-service";
 import {Observable} from "rxjs";
-import {Account} from "../../auth/models/account";
 import {Transaction} from "../models/transaction";
 import {ExtendedAccount} from "../models/extended-account";
 
