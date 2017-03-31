@@ -1,6 +1,6 @@
 <!-- TODO: Add ng2 specific directives/validation settings and add styling -->
 <div class="row">
-  <form #f="ngForm" (ngSubmit)="doRegister(f)" class="columns">
+  <form #registerForm="ngForm" (ngSubmit)="doRegister(registerForm)" class="columns">
     <div>
       First name:
       <div>
@@ -36,7 +36,7 @@
         <div class="validation-error" [hidden]="cpassword.valid || cpassword.pristine">Please confirm your password.</div>
       </div>
     </div>
-    <button type="submit" class="button">Register</button>
+    <button type="submit" class="button" [disabled]="!registerForm.form.valid">Register</button>
   </form>
 </div>
 

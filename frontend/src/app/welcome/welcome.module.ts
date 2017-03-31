@@ -16,9 +16,7 @@ import {WelcomeNavComponent} from "./components/welcome-nav/welcome-nav.componen
   imports: [
     WelcomeRoutingModule, SharedModule, AuthModule
   ],
-  exports: [
-    WelcomeComponent
-  ],
+  exports: [],
   providers: [ ]
 })
 export class WelcomeModule {

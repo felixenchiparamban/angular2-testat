@@ -14,9 +14,6 @@ export class CoreModule {
   static forRoot(config?: {}): ModuleWithProviders {
 
     return {
-      /*
-      * - was bewirkt diese deklaration hier?
-      * */
       ngModule: CoreModule,
       providers: [
         // DI Providers (Services, Tokens, Factories...) to be used globally and instantiated only once
