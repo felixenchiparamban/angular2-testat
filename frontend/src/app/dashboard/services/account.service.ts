@@ -20,10 +20,14 @@ export class AccountService {
     return this.accountResource.getAccount(id);
   }
 
-  public addTransaction(toAccount: string, amount: number): void {
-    this.accountResource.addTransaction(toAccount, amount).subscribe(
-      (transaction: Transaction) => {
+  public addTransaction(toAccount: string, amount: number): Observable<boolean> {
+    return this.accountResource.addTransaction(toAccount, amount)
+      .map((transaction: Transaction) => {
         this.getLastTransactions();
+        return true;
+      })
+      .catch((error: any) => {
+        return Observable.throw(error);
       });
   }
 

@@ -1,13 +1,16 @@
 <div class="row">
   <h4>Neue Bewegungen</h4>
 </div>
-<form (ngSubmit)="pay(payForm)" #payForm="ngForm">
+
+<form *ngIf="!paymentDone" (ngSubmit)="pay(payForm)" #payForm="ngForm">
   <div class="row">
     <div class="small-1 columns">
       <label for="fromAccount" class="text-left middle">Von</label>
     </div>
     <div class="small-11 columns">
-      <input type="text" id="fromAccount" placeholder="From account" reaonly disabled value="{{myAccount?.accountNr}} [{{myAccount?.amount}}]">
+      <input type="text" id="fromAccount" placeholder="From account"
+             reaonly disabled
+             value="{{myAccount?.accountNr}} [{{myAccount?.amount | currencydisplay}}]">
     </div>
   </div>
 
@@ -19,9 +22,14 @@
       <input type="number" class="form-control" id="toAccount"
              placeholder="To account"
              [(ngModel)]="toAccount" name="toAccount" required
-             #toAccountValidation="ngModel" pattern="[0-9]{7,}">
-      <div [hidden]="toAccountValidation.valid|| toAccountValidation.pristine" class="error">
-        toAccount is required
+             (ngModelChange)="onTargetAccountChange()"
+             #toAccountValidation="ngModel">
+      <div [hidden]="(toAccountValidation.valid || toAccountValidation.pristine)" class="error">
+        Please specify the target account
+      </div>
+      <div [hidden]="!toAccountValidation.valid" class="error">
+        <span *ngIf="targetAccount">{{targetAccount.fullname}}</span>
+        <span *ngIf="targetAccount == null">Unknown account number</span>
       </div>
     </div>
   </div>
@@ -33,20 +41,27 @@
     <div class="small-11 columns">
       <div class="input-group">
         <input class="input-group-field" id="amount" type="number"
-        placeholder="Betrag" [(ngModel)]="amount" name="amount" required
-        #amountValidation="ngModel">
+               placeholder="Betrag" [(ngModel)]="amount" name="amount" required
+               #amountValidation="ngModel">
         <span class="input-group-label">$</span>
       </div>
     </div>
     <div [hidden]="amountValidation.valid|| amountValidation.pristine" class="error">
-      Amount is required
+      Please specify the amount
     </div>
   </div>
 
   <div class="row text-right">
     <button type="submit" class="primary button"
-            [disabled]="!payForm.form.valid">Überweisen
+            [disabled]="!payForm.form.valid || !targetAccount">Überweisen
     </button>
   </div>
 
 </form>
+
+<div *ngIf="paymentDone">
+  <div>Transaction to {{targetAccount?.accountNr}} succeeded</div>
+  <div>New balance <span>{{myAccount.amount | currencydisplay}}</span>  </div>
+
+  <button class="primary button" (click)="reset()">Start over</button>
+</div>
