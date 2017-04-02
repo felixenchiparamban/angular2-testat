@@ -23,6 +23,9 @@ export class LoginComponent implements OnInit {
   public isProcessing:boolean = false;
 
   constructor(private autSvc:AuthService, private navigationSvc: NavigationService, route: ActivatedRoute) {
+    /*
+    * - Wie funktioniert die backUrl hier?
+    * */
     route.params.subscribe((p:Params) => this.backUrl = p["backUrl"]);
   }
 

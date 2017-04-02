@@ -32,6 +32,10 @@ export class AccountResourceService extends ResourceBase {
       target: toAccount,
       amount: amount
     };
+    /*
+    * - Wie weiss die Server von welchem Account die Geld abgehoben werden soll?
+    * - Wieso wird hier eine .map() verwendet anstatt einer subscribe?
+    * */
     return this.post(url, dto)
       .map((response: Response) => {
         let result = response.json();

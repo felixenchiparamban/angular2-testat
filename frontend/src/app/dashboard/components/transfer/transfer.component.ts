@@ -11,6 +11,7 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./transfer.component.css']
 })
 export class TransferComponent implements OnInit {
+
   private myAccount: ExtendedAccount;
   private targetAccount: ExtendedAccount;
 
@@ -21,6 +22,9 @@ export class TransferComponent implements OnInit {
   }
 
   ngOnInit() {
+    /*
+    * - Wieso gibt hier auch eine subscribe?
+    * */
     this.accountService.getAccount()
       .subscribe(
         (extendedAccount: ExtendedAccount) => {

@@ -8,9 +8,7 @@ import {SecurityTokenStore} from "../services/credential-management";
 @Injectable()
 export class AuthRequestOptions extends RequestOptions {
 
-  constructor(
-    private tokenStore: SecurityTokenStore,
-    args? : any) {
+  constructor(private tokenStore: SecurityTokenStore, args? : any) {
     super(args);
 
     if (this.tokenStore.storedValue) {

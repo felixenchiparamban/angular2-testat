@@ -8,6 +8,7 @@ import {Validator, NG_VALIDATORS, AbstractControl} from '@angular/forms';
     useExisting: forwardRef(() => EqualDirective),
     multi: true } ]
 })
+
 export class EqualDirective implements Validator {
 
   constructor() { }
