@@ -19,10 +19,14 @@
     <div class="small-11 columns">
       <input type="number" class="form-control" id="toAccount"
              placeholder="To account"
-             [(ngModel)]="toAccount" name="toAccount" required
-             #toAccountValidation="ngModel" pattern="[0-9]{7,}">
-      <div [hidden]="toAccountValidation.valid|| toAccountValidation.pristine" class="error">
-        toAccount is required
+             [(ngModel)]="toAccount" name="toAccount" required (ngModelChange)="onTargetAccountChange()"
+             #toAccountValidation="ngModel">
+      <div [hidden]="(toAccountValidation.valid || toAccountValidation.pristine)" class="error">
+        Please specify the target account
+      </div>
+      <div [hidden]="!toAccountValidation.valid" class="error">
+        <span *ngIf="targetAccount">{{targetAccount.fullname}}</span>
+        <span *ngIf="targetAccount == null">Unknown account number</span>
       </div>
     </div>
   </div>
@@ -40,7 +44,7 @@
       </div>
     </div>
     <div [hidden]="amountValidation.valid|| amountValidation.pristine" class="error">
-      Amount is required
+      Please specify the amount
     </div>
   </div>
 

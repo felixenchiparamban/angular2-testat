@@ -36,4 +36,13 @@ export class TransferComponent implements OnInit {
     return false;
   }
 
+  public onTargetAccountChange(){
+    if(this.toAccount){
+      this.accountService.getAccount(parseInt(this.toAccount, 10))
+        .subscribe(
+          (account: ExtendedAccount) => this.targetAccount = account
+        );
+    }
+  }
+
 }
