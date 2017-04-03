@@ -8,7 +8,7 @@ export class ExtendedAccount extends Account {
     super(login, firstname, lastname, accountNr);
   }
 
-  public static fromDto(data: any): Account {
+  public static fromDto(data: any): ExtendedAccount {
     return new ExtendedAccount(data.owner.login, data.owner.firstname, data.owner.lastname, data.accountNr, data.amount);
   }
 

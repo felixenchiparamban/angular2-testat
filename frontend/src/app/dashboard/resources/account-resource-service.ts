@@ -29,7 +29,7 @@ export class AccountResourceService extends ResourceBase {
   public addTransaction(toAccount: string, amount: number): Observable<Transaction> {
     let url = `/accounts/transactions`;
     let dto = {
-      target: toAccount,
+      target: toAccount.toString(),
       amount: amount
     };
     /*
@@ -39,15 +39,10 @@ export class AccountResourceService extends ResourceBase {
     return this.post(url, dto)
       .map((response: Response) => {
         let result = response.json();
-        console.log(result);
-        if(result){
-          return Transaction.fromDto(result);
-        }
-        return null;
+        return Transaction.fromDto(result);
       })
       .catch((error: any) => {
-        console.log(error);
-        return Observable.of<Transaction>(null);
+        return Observable.throw(new Error('Transaction failed'));
       });
   }
 
