@@ -1,12 +1,16 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {AuthGuard} from "./auth/services/auth-guard.service";
 
 const appRoutes: Routes = [
   // TODO: Add routing of eagerly loaded modules here...
-  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+  {path: '', redirectTo: '/welcome', pathMatch: 'full'},
   // TODO: Add routing of lazy loaded dashboard Module (with guards) here...
-  { path: 'dashboard', loadChildren: 'app/dashboard/dashboard.module#DashboardModule', canActivate: [AuthGuard] }
+  {
+    path: 'dashboard',
+    loadChildren: 'app/dashboard/dashboard.module#DashboardModule',
+    canLoad: [AuthGuard]
+  }
 ];
 
 @NgModule({
@@ -17,4 +21,5 @@ const appRoutes: Routes = [
     RouterModule
   ]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}
