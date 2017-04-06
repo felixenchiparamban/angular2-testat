@@ -7,7 +7,7 @@ import {AuthGuard} from '../auth/services/auth-guard.service';
 
 const appRoutes: Routes = [
   {
-    path: 'dashboard',
+    path: '',
     component: DashboardComponent, // TODO: Add initial router outlet dashboard component...
     children: [
       {path: '', component: DashboardHomeComponent},
