@@ -41,6 +41,9 @@ export class AccountService {
   }
 
   public getAllTransactions(fromDate: Date, toDate: Date): void {
+    /*
+    * - Wieso gibt es hier eine subscribe?
+    * */
     this.accountResource.getTransactions(fromDate, toDate)
       .subscribe(
         (transactions: Transaction[]) => {

@@ -2,7 +2,7 @@ import {NgModule, ModuleWithProviders} from '@angular/core';
 
 import {SharedModule} from "../shared/shared.module";
 
-import {DashbaordRoutingModule} from "./dashboard-routing.module";
+import {DashboardRouterModule} from "./dashboard-routing.module";
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {TransferComponent} from './components/transfer/transfer.component';
 import {LastTransactionsComponent} from './components/last-transactions/last-transactions.component';
@@ -29,7 +29,7 @@ import { CurrencydisplayPipe } from './pipes/currencydisplay.pipe';
     CurrencydisplayPipe],
   imports: [
     // Other Modules to import (imports the exported Components/Directives from the other module)
-    SharedModule, DashbaordRoutingModule, AuthModule
+    SharedModule, DashboardRouterModule, AuthModule
   ],
   exports: [
     // Components/Directives (or even Modules) to export (available for other modules; and forRoot() )
@@ -38,16 +38,18 @@ import { CurrencydisplayPipe } from './pipes/currencydisplay.pipe';
   ],
   providers: [
     // DI Providers (Services, Tokens, Factories...), may be instantiated multiple times
+    AccountResourceService,
+    AccountService
   ]
 })
 export class DashboardModule {
-  static forRoot(config?: {}): ModuleWithProviders {
-    return {
-      ngModule: DashboardModule,
-      providers: [
-        AccountResourceService,
-        AccountService
-      ]
-    };
-  }
+  // static forRoot(config?: {}): ModuleWithProviders {
+  //   return {
+  //     ngModule: DashboardModule,
+  //     providers: [
+  //       // AccountResourceService,
+  //       // AccountService
+  //     ]
+  //   };
+  // }
 }

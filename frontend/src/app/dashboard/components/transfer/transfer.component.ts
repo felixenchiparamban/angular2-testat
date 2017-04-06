@@ -12,6 +12,7 @@ import {Subscription} from "rxjs";
   styleUrls: ['./transfer.component.css']
 })
 export class TransferComponent implements OnInit {
+
   private myAccount: ExtendedAccount;
   public targetAccount: ExtendedAccount;
 

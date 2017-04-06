@@ -8,6 +8,7 @@ import {AuthResourceService, AuthRequestOptions} from "./resources";
 import {LoginComponent, LogoutComponent, RegisterComponent} from "./components";
 import {SharedModule} from "../shared/shared.module";
 import {EqualDirective} from './directive/equal.directive';
+import { AuthGuard } from "./services/auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ export class AuthModule {
         // TODO: Add services/guards/... here, if additional classes are placed within the Auth module
         AuthResourceService,
         AuthService,
+        AuthGuard,
         SecurityTokenStore,
         {
           provide: RequestOptions,

@@ -9,6 +9,9 @@ import {SecurityTokenStore} from "./credential-management";
 @Injectable()
 export class AuthService {
 
+  isLoggedIn: boolean = false;
+  redirectUrl: string;
+
   public authenticatedUserChange:EventEmitter<Account> = new EventEmitter<Account>();
 
   public get authenticatedUser():Account {
@@ -40,6 +43,7 @@ export class AuthService {
         this.tokenStore.storedValue = data;
         this.authUser = !isBlank(data)? data.owner : null;
         this.authenticatedUserChange.emit(this.authenticatedUser);
+        this.isLoggedIn = true;
       } );
   }
 
@@ -47,5 +51,6 @@ export class AuthService {
     this.tokenStore.storedValue = null;
     this.authUser = null;
     this.authenticatedUserChange.emit(null);
+    this.isLoggedIn = false;
   }
 }
